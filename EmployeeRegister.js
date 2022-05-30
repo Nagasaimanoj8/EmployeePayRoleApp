@@ -28,6 +28,18 @@ const save = () => {
 
     }
 }
+
+function createandUpdateStorage(employeePayroleData) {
+    let employeePayrollList = JSON.parse(localStorage.grtItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayroleData);
+    } else {
+        employeePayrollList = [employeePayroleData]
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
+}
+
 const createEmployeePyroll = () => {
     let employePayrollData = new EmployeePayroleData();
     try {
